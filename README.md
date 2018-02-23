@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/jorgegil96/RxPlayBilling.svg?branch=master)](https://travis-ci.org/jorgegil96/RxPlayBilling)
 [![Release status](https://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/jorgegil96/RxPlayBilling/releases)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jorgegil96/RxPlayBilling/issues)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jorgegil96/RxPlayBilling/issues)  
+
 
 #RxPlayBilling for Android
 
