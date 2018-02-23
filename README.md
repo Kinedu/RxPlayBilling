@@ -3,7 +3,7 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jorgegil96/RxPlayBilling/issues)  
 
 
-#RxPlayBilling for Android
+# RxPlayBilling for Android
 
 RxPlayBilling is a simple, lightweight reactive wrapper around the new Android [Play Billing 
 Library.](https://developer.android.com/google/play/billing/billing_library.html)
