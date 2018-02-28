@@ -21,7 +21,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-  implementation 'com.github.jorgegil96:RxPlayBilling:1.0.2'
+  implementation 'com.github.kinedu:rxplaybilling:1.0.2'
 }  
 ```
 

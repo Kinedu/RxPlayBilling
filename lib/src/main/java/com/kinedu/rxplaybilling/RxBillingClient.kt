@@ -1,13 +1,13 @@
-package com.jorgegilcavazos.rxplaybilling
+package com.kinedu.rxplaybilling
 
 import android.app.Activity
 import com.android.billingclient.api.BillingClient
-import com.jorgegilcavazos.rxplaybilling.model.ConnectionResult
-import com.jorgegilcavazos.rxplaybilling.model.ConsumptionResponse
-import com.jorgegilcavazos.rxplaybilling.model.PurchaseResponse
-import com.jorgegilcavazos.rxplaybilling.model.PurchasesUpdatedResponse
-import com.jorgegilcavazos.rxplaybilling.model.QueryPurchasesResponse
-import com.jorgegilcavazos.rxplaybilling.model.SkuDetailsResponse
+import com.kinedu.rxplaybilling.model.ConnectionResult
+import com.kinedu.rxplaybilling.model.ConsumptionResponse
+import com.kinedu.rxplaybilling.model.PurchaseResponse
+import com.kinedu.rxplaybilling.model.PurchasesUpdatedResponse
+import com.kinedu.rxplaybilling.model.QueryPurchasesResponse
+import com.kinedu.rxplaybilling.model.SkuDetailsResponse
 import io.reactivex.Observable
 import io.reactivex.Single
 

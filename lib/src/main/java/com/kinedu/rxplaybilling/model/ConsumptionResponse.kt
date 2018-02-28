@@ -1,4 +1,4 @@
-package com.jorgegilcavazos.rxplaybilling.model
+package com.kinedu.rxplaybilling.model
 
 import com.android.billingclient.api.BillingClient
 
