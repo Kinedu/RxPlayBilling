@@ -46,6 +46,8 @@ class RxPlayBilling constructor(context: Context) : PurchasesUpdatedListener {
         }
     }
 
+    fun getBillingClient(): BillingClient = billingClient
+
     /**
      * Starts the billing client setup.
      *
