@@ -21,16 +21,16 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-  implementation 'com.github.jorgegil96:RxPlayBilling:1.0.1'
+  implementation 'com.github.jorgegil96:RxPlayBilling:1.0.2'
 }  
 ```
 
 ## Connecting to Google Play
-Before you can use the RxPlayBilling client functions, you must first establish a connection
+Before you can use the RxBillingClient functions, you must first establish a connection
 to Google Play:  
  ```
- rxPlayBilling = RxPlayBilling(context)
- rxPlayBilling.connect()
+ val rxBillingClient: RxBillingClient = DefaultRxBillingClient(context)
+ rxBillingClient.connect()
          .subscribe({ connectionResult ->
              when (connectionResult) {
                  ConnectionResult.Success -> {
@@ -51,7 +51,7 @@ to Google Play:
 
 ## Retrieve existing purchases and subscriptions
 ```
-rxPlayBilling.purchasesUpdates()
+rxBillingClient.purchasesUpdates()
         .subscribe({ purchasesUpdatedResponse ->
             when (purchasesUpdatedResponse) {
                 is PurchasesUpdatedResponse.Success -> {
@@ -85,7 +85,7 @@ You can use RxPlayBilling to query item details for unique Product IDs from Goog
 
 #### In-app purchases
 ```
-rxPlayBilling.queryInAppSkuDetails(listOf("premium_upgrade", "gas"))
+rxBillingClient.queryInAppSkuDetails(listOf("premium_upgrade", "gas"))
         .subscribe({ skuDetailsResponse ->
             when (skuDetailsResponse) {
                 is SkuDetailsResponse.Success -> {
@@ -105,7 +105,7 @@ rxPlayBilling.queryInAppSkuDetails(listOf("premium_upgrade", "gas"))
 
 #### Subscriptions
 ```
-rxPlayBilling.querySubscriptionsSkuDetails(listOf("subscription_x", "subscription_y"))
+rxBillingClient.querySubscriptionsSkuDetails(listOf("subscription_x", "subscription_y"))
         .subscribe({ skuDetailsResponse ->
             when (skuDetailsResponse) {
                 is SkuDetailsResponse.Success -> {
@@ -128,7 +128,7 @@ billing flow for along with an activity reference.
 
 #### In-app purchases
 ```
-rxPlayBilling.purchaseItem("premium_upgrade", activity)
+rxBillingClient.purchaseItem("premium_upgrade", activity)
         .subscribe({ purchaseResponse ->
             when (purchaseResponse) {
                 PurchaseResponse.Success -> {
@@ -145,7 +145,7 @@ rxPlayBilling.purchaseItem("premium_upgrade", activity)
 
 #### Subscriptions
 ```
-rxPlayBilling.purchaseSubscription("subscription_x", activity)
+rxBillingClient.purchaseSubscription("subscription_x", activity)
         .subscribe({ purchaseResponse ->
             when (purchaseResponse) {
                 PurchaseResponse.Success -> {
@@ -165,7 +165,7 @@ function and pass the `oldSkuId` of the subscription that the user is
 upgrading/downgrading from, along with the `newSkuId` and an activity reference.
 
 ```
-rxPlayBilling.replaceSubscription("old_subscription_sku", "new_subscription_sku", activity)
+rxBillingClient.replaceSubscription("old_subscription_sku", "new_subscription_sku", activity)
         .subscribe({ purchaseResponse ->
             when (purchaseResponse) {
                 PurchaseResponse.Success -> {
@@ -183,7 +183,7 @@ rxPlayBilling.replaceSubscription("old_subscription_sku", "new_subscription_sku"
 ```
 
 ### Querying for purchased items
-RxPlayBilling's `queryInAppPurchases()` and `querySubscriptionPurchases()` functions return the 
+RxBillingClient's `queryInAppPurchases()` and `querySubscriptionPurchases()` functions return the 
 purchases made by the user account logged in to the device. The resulting list of purchases 
 returns a cache of the Google Play Store app without initiating a network request. You can use 
 the `queryInAppPurchaseHistory()` and `querySubscriptionPurchaseHistory()` functions to request 
@@ -208,7 +208,7 @@ rxPayBilling.queryInAppPurchases()
         })
         
 
-rxPlayBilling.queryInAppPurchaseHistory()
+rxBillingClient.queryInAppPurchaseHistory()
         .subscribe({ queryPurchasesResponse ->
             when (queryPurchasesResponse) {
                 is QueryPurchasesResponse.Success -> {
@@ -227,7 +227,7 @@ rxPlayBilling.queryInAppPurchaseHistory()
 
 #### Subscriptions
 ```
-rxPlayBilling.querySubscriptionPurchases()
+rxBillingClient.querySubscriptionPurchases()
         .subscribe({ queryPurchasesResponse ->
             when (queryPurchasesResponse) {
                 is QueryPurchasesResponse.Success -> {
@@ -244,7 +244,7 @@ rxPlayBilling.querySubscriptionPurchases()
         })
         
 
-rxPlayBilling.querySubscriptionPurchaseHistory()
+rxBillingClient.querySubscriptionPurchaseHistory()
         .subscribe({ queryPurchasesResponse ->
             when (queryPurchasesResponse) {
                 is QueryPurchasesResponse.Success -> {
@@ -266,7 +266,7 @@ You can consume an in-app product by calling the `consumeItem()` function and pa
 `purchaseToken` of the item as a parameter.
 
 ```
-rxPlayBilling.consumeItem("gas")
+rxBillingClient.consumeItem("gas")
         .subscribe({ consumptionResponse ->
             when (consumptionResponse) {
                 is ConsumptionResponse.Success -> {
