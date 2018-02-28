@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/jorgegil96/RxPlayBilling.svg?branch=master)](https://travis-ci.org/jorgegil96/RxPlayBilling)
-[![](https://jitpack.io/v/jorgegil96/RxPlayBilling.svg)](https://jitpack.io/#jorgegil96/RxPlayBilling)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jorgegil96/RxPlayBilling/issues)  
+[![Build Status](https://travis-ci.org/Kinedu/RxPlayBilling.svg?branch=master)](https://travis-ci.org/Kinedu/RxPlayBilling)
+[![](https://jitpack.io/v/Kinedu/RxPlayBilling.svg)](https://jitpack.io/#Kinedu/RxPlayBilling)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Kinedu/RxPlayBilling/issues)  
 
 
 # RxPlayBilling for Android
