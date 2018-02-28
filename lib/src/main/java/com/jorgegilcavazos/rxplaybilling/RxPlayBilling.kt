@@ -46,7 +46,10 @@ class RxPlayBilling constructor(context: Context) : PurchasesUpdatedListener {
         }
     }
 
-    fun getBillingClient(): BillingClient = billingClient
+    /**
+     * Returns true if the client is currently connected to the service. False otherwise.
+     */
+    fun isReady(): Boolean = billingClient.isReady
 
     /**
      * Starts the billing client setup.
