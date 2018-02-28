@@ -46,7 +46,7 @@ rxPlayBilling.purchasesUpdates()
             when (purchasesUpdatedResponse) {
                 is PurchasesUpdatedResponse.Success -> {
                     val purchases = purchasesUpdatedResponse.items
-                    purchases?.forEach { purchase ->
+                    purchases.forEach { purchase ->
                         // Handle purchase.
                     }
                 }

@@ -40,7 +40,7 @@ class RxPlayBilling constructor(context: Context) : PurchasesUpdatedListener {
 
     override fun onPurchasesUpdated(responseCode: Int, purchases: MutableList<Purchase>?) {
         if (responseCode == BillingClient.BillingResponse.OK) {
-            purchasesUpdates.onNext(PurchasesUpdatedResponse.Success(purchases))
+            purchasesUpdates.onNext(PurchasesUpdatedResponse.Success(purchases ?: listOf()))
         } else {
             purchasesUpdates.onNext(PurchasesUpdatedResponse.Failure(responseCode))
         }
@@ -140,7 +140,7 @@ class RxPlayBilling constructor(context: Context) : PurchasesUpdatedListener {
                 .build()
             billingClient.querySkuDetailsAsync(params) { responseCode, skuDetailsList ->
                 if (responseCode == BillingClient.BillingResponse.OK) {
-                    it.onSuccess(SkuDetailsResponse.Success(skuDetailsList))
+                    it.onSuccess(SkuDetailsResponse.Success(skuDetailsList ?: listOf()))
                 } else {
                     it.onSuccess(SkuDetailsResponse.Failure(responseCode))
                 }
@@ -163,7 +163,7 @@ class RxPlayBilling constructor(context: Context) : PurchasesUpdatedListener {
                 .build()
             billingClient.querySkuDetailsAsync(params) { responseCode, skuDetailsList ->
                 if (responseCode == BillingClient.BillingResponse.OK) {
-                    it.onSuccess(SkuDetailsResponse.Success(skuDetailsList))
+                    it.onSuccess(SkuDetailsResponse.Success(skuDetailsList ?: listOf()))
                 } else {
                     it.onSuccess(SkuDetailsResponse.Failure(responseCode))
                 }
@@ -180,7 +180,7 @@ class RxPlayBilling constructor(context: Context) : PurchasesUpdatedListener {
             billingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.INAPP) {
                 responseCode, purchasesList ->
                 if (responseCode == BillingClient.BillingResponse.OK) {
-                    it.onSuccess(QueryPurchasesResponse.Success(purchasesList))
+                    it.onSuccess(QueryPurchasesResponse.Success(purchasesList ?: listOf()))
                 } else {
                     it.onSuccess(QueryPurchasesResponse.Failure(responseCode))
                 }
@@ -196,8 +196,8 @@ class RxPlayBilling constructor(context: Context) : PurchasesUpdatedListener {
         return Single.create {
             billingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.SUBS) {
                 responseCode, purchasesList ->
-                if (responseCode == BillingClient.BillingResponse.OK && purchasesList != null) {
-                    it.onSuccess(QueryPurchasesResponse.Success(purchasesList))
+                if (responseCode == BillingClient.BillingResponse.OK) {
+                    it.onSuccess(QueryPurchasesResponse.Success(purchasesList ?: listOf()))
                 } else {
                     it.onSuccess(QueryPurchasesResponse.Failure(responseCode))
                 }
