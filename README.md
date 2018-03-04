@@ -21,7 +21,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-  implementation 'com.github.kinedu:rxplaybilling:1.0.3'
+  implementation 'com.kinedu:rxplaybilling:1.0.3'
 }  
 ```
 
@@ -29,7 +29,8 @@ dependencies {
 Before you can use the RxBillingClient functions, you must first establish a connection
 to Google Play:  
  ```
- val rxBillingClient: RxBillingClient = DefaultRxBillingClient(context)
+ val rxBillingClient: RxBillingClient = DefaultRxBillingClient(context)  
+ 
  rxBillingClient.connect()
          .subscribe({ connectionResult ->
              when (connectionResult) {
